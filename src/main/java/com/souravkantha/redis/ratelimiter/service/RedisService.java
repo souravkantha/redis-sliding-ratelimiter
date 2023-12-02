@@ -6,6 +6,8 @@ import java.time.temporal.ChronoUnit;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ZSetOperations;
 
+import com.souravkantha.redis.ratelimiter.core.WindowTimeUnit;
+
 public class RedisService {
 
 	private RedisTemplate<String, String> redisTemplate;
@@ -15,7 +17,7 @@ public class RedisService {
 		
 	}
 
-	public Boolean isRollingRateExceeded(final String key, final int rate, final int secondsPerWindow,
+	public Boolean isRollingRateExceeded(final String key, final int rate, final WindowTimeUnit timeUnit,
 			final String entropy) {
 		ZSetOperations<String, String> ops = redisTemplate.opsForZSet();
 		Long currentEpochMili = Instant.now().toEpochMilli();
@@ -29,7 +31,17 @@ public class RedisService {
 		// k,v,t0; v,t1; .., v,tn
 		// ------------ti-----x(curr - 1 min)------curr_time
 		// ------curr_time < 5
-		ops.removeRangeByScore(key, 0,  Instant.ofEpochMilli(currentEpochMili).minus(secondsPerWindow, ChronoUnit.SECONDS).toEpochMilli());
+		switch (timeUnit) {
+		case SECONDS:
+			ops.removeRangeByScore(key, 0,  Instant.ofEpochMilli(currentEpochMili).minus(1000, ChronoUnit.MILLIS).toEpochMilli());
+			break;
+			
+		case MINUTES:
+			ops.removeRangeByScore(key, 0,  Instant.ofEpochMilli(currentEpochMili).minus(60, ChronoUnit.SECONDS).toEpochMilli());
+			break;
+			
+		}
+		
 		//log.info("removedKeys:: " + removedKeys);
 		//log.info("size:: " + ops.zCard(key));
 		return (ops.zCard(key) >= rate);  // no of used rate is greater or equal than rate

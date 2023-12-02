@@ -15,6 +15,6 @@ public class SimpleRateLimiterProcessor {
     @Before(value = "@annotation(SimpleRateLimiter)", argNames = "SimpleRateLimiter")
     public void throttleRequest(SimpleRateLimiter request) throws RateLimitedException {
 
-    	throttlerService.acquire(request.key(), request.requestsRatePerWindow(), request.numberOfSecondsPerWindow());
+    	throttlerService.acquire(request.key(), request.requestsRatePerWindow(), request.timeUnit());
     }
 }

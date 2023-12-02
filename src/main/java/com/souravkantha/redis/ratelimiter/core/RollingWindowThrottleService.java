@@ -13,10 +13,10 @@ public class RollingWindowThrottleService {
 	}
 	
 	public boolean acquire(final String key,
-			final int rate, final int secondsPerWindow) throws RateLimitedException {
+			final int rate, final WindowTimeUnit timeUnit) throws RateLimitedException {
 		
 		String entropy =  Long.toHexString(Thread.currentThread().getId());
-		if(redisService.isRollingRateExceeded(key, rate, secondsPerWindow, entropy)) {
+		if(redisService.isRollingRateExceeded(key, rate, timeUnit, entropy)) {
 				throw new RateLimitedException("Rate Limited");
 		} else {
 					return Boolean.TRUE; // Not rate limited

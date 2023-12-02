@@ -13,7 +13,7 @@ public @interface SimpleRateLimiter  {
     
     int requestsRatePerWindow();
     
-    int numberOfSecondsPerWindow();
+    WindowTimeUnit timeUnit();
 
 }
 

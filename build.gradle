@@ -2,8 +2,8 @@ plugins {
 	id 'java'
 }
 
-archivesBaseName = 'redis-sliding-ratelimiter'
-group = 'com.souravkantha.redis.ratelimiter'
+//archivesBaseName = 'redis-sliding-ratelimiter'
+group = 'io.github.souravkantha'
 version = '0.0.1'
 sourceCompatibility = '18'
 

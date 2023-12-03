@@ -1,9 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.2'
-	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
 	id 'java'
 }
 
+archivesBaseName = 'redis-sliding-ratelimiter'
 group = 'com.souravkantha.redis.ratelimiter'
 version = '0.0.1'
 sourceCompatibility = '18'
@@ -13,11 +12,8 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-	implementation('org.projectlombok:lombok:1.18.20')
-	implementation 'org.springframework.boot:spring-boot-starter-aop'
-	annotationProcessor "org.projectlombok:lombok:1.18.20"
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.redisson:redisson:3.11.5'
+	implementation 'org.aspectj:aspectjrt:1.9.20.1'
 }
 
 tasks.named('test') {

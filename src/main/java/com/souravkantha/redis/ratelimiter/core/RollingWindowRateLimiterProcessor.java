@@ -14,7 +14,7 @@ public class RollingWindowRateLimiterProcessor {
 	
     @Before(value = "@annotation(RollingWindowRateLimiter)", argNames = "RollingWindowRateLimiter")
     public void throttleRequest(RollingWindowRateLimiter request) throws RateLimitedException {
-
+    	System.out.println("inside");
     	throttlerService.acquire(request.key(), request.requestsRatePerWindow(), request.timeUnit());
     }
 }

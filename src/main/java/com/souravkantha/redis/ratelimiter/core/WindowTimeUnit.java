@@ -2,6 +2,6 @@ package com.souravkantha.redis.ratelimiter.core;
 
 public enum WindowTimeUnit {
 	
-	SECONDS, MINUTES
+	SECOND, MINUTE, HOUR
 
 }

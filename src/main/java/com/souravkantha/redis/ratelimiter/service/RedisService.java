@@ -32,12 +32,16 @@ public class RedisService {
 		// ------------ti-----x(curr - 1 min)------curr_time
 		// ------curr_time < 5
 		switch (timeUnit) {
-		case SECONDS:
+		case SECOND:
 			ops.removeRangeByScore(key, 0,  Instant.ofEpochMilli(currentEpochMili).minus(1000, ChronoUnit.MILLIS).toEpochMilli());
 			break;
 			
-		case MINUTES:
+		case MINUTE:
 			ops.removeRangeByScore(key, 0,  Instant.ofEpochMilli(currentEpochMili).minus(60, ChronoUnit.SECONDS).toEpochMilli());
+			break;
+			
+		case HOUR:
+			ops.removeRangeByScore(key, 0,  Instant.ofEpochMilli(currentEpochMili).minus(60, ChronoUnit.MINUTES).toEpochMilli());
 			break;
 			
 		}

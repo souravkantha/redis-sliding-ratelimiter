@@ -1,7 +1,7 @@
-package com.souravkantha.redis.ratelimiter.core;
+package com.souravkantha.redis.ratelimiter.service;
 
-import com.souravkantha.redis.ratelimiter.service.RedisService;
-
+import com.souravkantha.ratelimiter.core.RateLimitedException;
+import com.souravkantha.ratelimiter.core.WindowTimeUnit;
 
 public class RollingWindowThrottleService {
 	
@@ -17,7 +17,7 @@ public class RollingWindowThrottleService {
 		
 		String entropy =  Long.toHexString(Thread.currentThread().getId());
 		if(redisService.isRollingRateExceeded(key, rate, timeUnit, entropy)) {
-				throw new RateLimitedException("Rate Limited");
+				throw new RateLimitedException("Rate Limited!!");
 		} else {
 					return Boolean.TRUE; // Not rate limited
 		}

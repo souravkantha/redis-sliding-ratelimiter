@@ -1,4 +1,4 @@
-package com.souravkantha.redis.ratelimiter.core;
+package com.souravkantha.ratelimiter.core;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,7 +13,9 @@ public @interface RollingWindowRateLimiter  {
     
     int requestsRatePerWindow();
     
-    WindowTimeUnit timeUnit();
+    WindowTimeUnit timeUnit() default WindowTimeUnit.SECOND;
+    
+    String fallbackMethod();
 
 }
 

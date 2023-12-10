@@ -1,4 +1,4 @@
-package com.souravkantha.redis.ratelimiter.core;
+package com.souravkantha.ratelimiter.core;
 
 public class RateLimitedException extends RuntimeException {
     private static final long serialVersionUID = 1L;

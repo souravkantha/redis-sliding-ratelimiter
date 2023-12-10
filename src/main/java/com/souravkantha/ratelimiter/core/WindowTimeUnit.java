@@ -1,4 +1,4 @@
-package com.souravkantha.redis.ratelimiter.core;
+package com.souravkantha.ratelimiter.core;
 
 public enum WindowTimeUnit {
 	

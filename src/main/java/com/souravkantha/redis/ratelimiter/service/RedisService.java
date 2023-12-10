@@ -7,8 +7,8 @@ import org.redisson.api.RLock;
 import org.redisson.api.RScoredSortedSet;
 import org.redisson.api.RedissonClient;
 
-import com.souravkantha.redis.clientconfig.RedissonClientConfig;
-import com.souravkantha.redis.ratelimiter.core.WindowTimeUnit;
+import com.souravkantha.ratelimiter.config.RedissonClientConfig;
+import com.souravkantha.ratelimiter.core.WindowTimeUnit;
 
 public class RedisService {
 
@@ -56,7 +56,7 @@ public class RedisService {
 			final String value = new StringBuilder(currentEpochMili.toString()).append(entropy).toString();
 			rateLimiterSet.add(currentEpochMili, value);
 			
-			return rateLimiterSet.size() >= rate;
+			return rateLimiterSet.size() > rate;
 			
 			
 		} finally {

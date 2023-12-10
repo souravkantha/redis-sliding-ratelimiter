@@ -1,4 +1,4 @@
-package com.souravkantha.redis.clientconfig;
+package com.souravkantha.ratelimiter.config;
 
 import java.io.File;
 import java.io.IOException;

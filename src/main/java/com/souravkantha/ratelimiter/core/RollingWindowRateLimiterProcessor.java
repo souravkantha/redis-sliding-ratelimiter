@@ -48,12 +48,4 @@ public class RollingWindowRateLimiterProcessor {
 		}
 
 	}
-
-	/**
-	 * 
-	 * Object targetObject  = joinPoint.getTarget();
-Method m = targetObject.getMethod("getC");
-m.invoke(targetObject);
-	 * 
-	 */
 }

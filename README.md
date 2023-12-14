@@ -17,7 +17,8 @@
 	    	return rlp;
 	}
 
-	
+
+
 	
 	@GetMapping("/test/v1/ping")
 	@RollingWindowRateLimiter(key = "/test/v1/ping", requestsRatePerWindow = 10,
@@ -26,7 +27,8 @@
 		
 		return  ResponseEntity.status(HttpStatus.OK).body("pong");
 	}
-	
+
+
 	
 	public ResponseEntity<?> rateLimitResponse() {
 		return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body("You are rate limited!!");

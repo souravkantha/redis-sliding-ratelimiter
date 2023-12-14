@@ -4,7 +4,6 @@
 ## How to use in spring boot
 
 
-
 	@SpringBootApplication
 	@Configuration
 	@EnableAspectJAutoProxy
@@ -18,10 +17,10 @@
 	}
 
 
-
+### Using annotation for a rest method
 	
-	@GetMapping("/test/v1/ping")
-	@RollingWindowRateLimiter(key = "/test/v1/ping", requestsRatePerWindow = 10,
+	@GetMapping("/v1/ping")
+	@RollingWindowRateLimiter(key = "/v1/ping", requestsRatePerWindow = 10,
 	timeUnit = WindowTimeUnit.MINUTE, fallbackMethod = "rateLimitResponse")
 	public ResponseEntity<?> greetCustomer() {
 		
@@ -29,7 +28,8 @@
 	}
 
 
-	
+### Fallback method which would be called when rate limited
+
 	public ResponseEntity<?> rateLimitResponse() {
 		return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body("You are rate limited!!");
 		

@@ -1,6 +1,5 @@
 package com.souravkantha.ratelimiter.core;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 
 import org.aspectj.lang.ProceedingJoinPoint;

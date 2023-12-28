@@ -51,6 +51,11 @@ public class RedisService {
 						Instant.ofEpochMilli(currentEpochMili).minus(60, ChronoUnit.MINUTES).toEpochMilli(), false);
 				break;
 				
+			case DAY:
+				rateLimiterSet.removeRangeByScore(0, false, 
+						Instant.ofEpochMilli(currentEpochMili).minus(24, ChronoUnit.HOURS).toEpochMilli(), false);
+				break;
+				
 			}
 			// score, value
 			final String value = new StringBuilder(currentEpochMili.toString()).append(entropy).toString();

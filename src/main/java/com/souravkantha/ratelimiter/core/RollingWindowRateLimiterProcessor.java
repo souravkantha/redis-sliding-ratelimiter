@@ -34,7 +34,7 @@ public class RollingWindowRateLimiterProcessor {
 
 			if (!"".equals(rateLimiter.fallbackMethod())) {
 				try {
-					
+					 
 					Class<?> targetObject = (Class<?>) ((MethodSignature) jp.getSignature()).getMethod()
 							.getDeclaringClass();
 					Method m = null;

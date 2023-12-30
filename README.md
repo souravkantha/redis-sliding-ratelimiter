@@ -1,5 +1,6 @@
 # Distributed Rolling Window Rate Limiter
-![image](https://github.com/souravkantha/redis-sliding-ratelimiter/assets/32014166/55adc367-6296-4a2f-982a-7749abe587e7)
+![image](https://github.com/souravkantha/redis-sliding-ratelimiter/assets/32014166/87d737a0-07cf-4e91-9c58-98363ce83002)
+
 
 
  <br /> <br /> <br />
@@ -7,7 +8,8 @@
 
 RollingWindowRateLimiter(RWRL) is a distributed rate limiter written in java. It can be used in a distributed environment where each services or components rate limiting is computed using redis storage. This implementation uses **Sliding Window Algorithm** (refer below diagram)
 
-![image](https://github.com/souravkantha/redis-sliding-ratelimiter/assets/32014166/8591d1dc-7adf-48a2-8b4e-891fc5276ee6)
+![image](https://github.com/souravkantha/redis-sliding-ratelimiter/assets/32014166/b58c7538-dff4-4a40-9c96-7dc1417eec27)
+
 
 
 ## How to import in your project

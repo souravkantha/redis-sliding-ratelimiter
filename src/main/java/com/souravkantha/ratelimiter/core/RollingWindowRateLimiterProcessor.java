@@ -11,6 +11,8 @@ import com.souravkantha.redis.ratelimiter.service.RollingWindowThrottleService;
 
 @Aspect
 public class RollingWindowRateLimiterProcessor {
+	
+	private static final String ERR_MSG = "You are rate limited!!";
 
 	private RollingWindowThrottleService throttlerService;
 
@@ -47,11 +49,12 @@ public class RollingWindowRateLimiterProcessor {
 
 					// let's send null as the fallback method is invalid
 					System.out.println(ex.getLocalizedMessage());
+					return null;
 				}
 
 			}
 
-			return null;
+			return ERR_MSG;
 
 		}
 

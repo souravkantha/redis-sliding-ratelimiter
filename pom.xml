@@ -2,10 +2,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.souravkantha</groupId>
   <artifactId>redis-sliding-ratelimiter</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   
    <name>Java Ratelimiter Using Redis</name>
-  <description>A Java Ratelimiter Using Redis</description>
+  <description>A distributed Ratelimiter Using Java and Redis</description>
   <url>https://github.com/souravkantha/redis-sliding-ratelimiter</url>
   <inceptionYear>2023</inceptionYear>
 
@@ -28,6 +28,7 @@
       <developer>
         <id>souravkantha</id>
         <name>Sourav Kantha</name>
+        <email>souravkantha@gmail.com</email>
         <organization>Developer</organization>
         <organizationUrl>https://github.com/souravkantha/</organizationUrl>
         <roles>

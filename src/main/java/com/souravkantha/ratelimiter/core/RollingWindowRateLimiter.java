@@ -15,7 +15,7 @@ public @interface RollingWindowRateLimiter  {
     
     WindowTimeUnit timeUnit() default WindowTimeUnit.SECOND;
     
-    String fallbackMethod();
+    String fallbackMethod() default "";
 
 }
 

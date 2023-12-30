@@ -24,6 +24,13 @@ public class RedissonClientConfig {
 		
 	}
 	
+	public RedissonClientConfig(final File file) throws IOException {
+		
+		Config config = Config.fromYAML(file);  
+		this.redisson = Redisson.create(config);
+		
+	}
+	
 	public RedissonClientConfig(final String ip, final int port) throws IOException {
 		
 		Config config = new Config();

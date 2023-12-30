@@ -1,4 +1,4 @@
-# Distributed Rolling Window Rate Limiter
+# Distributed Sliding Window Rate Limiter
 ![image](https://github.com/souravkantha/redis-sliding-ratelimiter/assets/32014166/87d737a0-07cf-4e91-9c58-98363ce83002)
 
 

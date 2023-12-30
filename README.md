@@ -1,6 +1,6 @@
 # Distributed Rolling Window Rate Limiter
+![image](https://github.com/souravkantha/redis-sliding-ratelimiter/assets/32014166/55adc367-6296-4a2f-982a-7749abe587e7)
 
-![image](https://github.com/souravkantha/redis-sliding-ratelimiter/assets/32014166/bf38fa93-b1ec-4ff4-9732-aea4bfce9eb5)
 
  <br /> <br /> <br />
 ## Another Rate Limiter, huh 🤨

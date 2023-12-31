@@ -1,5 +1,6 @@
 # Distributed Sliding Window Rate Limiter
-![image](https://github.com/souravkantha/redis-sliding-ratelimiter/assets/32014166/1ea4d284-77db-4ac5-bd82-6bd4939d4b36)
+![image](https://github.com/souravkantha/redis-sliding-ratelimiter/assets/32014166/6358f8d3-61e2-4d86-bcdf-2cb5fe30bcd7)
+
 
 
 

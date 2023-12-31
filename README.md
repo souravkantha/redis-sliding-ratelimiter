@@ -178,7 +178,7 @@ Return type for both target and fallback method should be same.
 		
 	}
 
-  ### Non Spring Standalone project
+  ## Using with Non Spring Standalone project
 
 	RollingWindowThrottleService throttler = null;
 

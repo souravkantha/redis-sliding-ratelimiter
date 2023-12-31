@@ -15,18 +15,20 @@ RollingWindowRateLimiter(RWRL) is a distributed rate limiter written in java. It
 
 ## How to import in your project
 
+#### Latest Stable version is **1.0.3**
+
 ### Maven
 	<dependency>
 	    <groupId>io.github.souravkantha</groupId>
 	    <artifactId>redis-sliding-ratelimiter</artifactId>
-	    <version>1.0.2</version>
+	    <version>1.0.3</version>
 	</dependency>
 
 ### Gradle
-	implementation 'io.github.souravkantha:redis-sliding-ratelimiter:1.0.2'
+	implementation 'io.github.souravkantha:redis-sliding-ratelimiter:1.0.3'
 
  ### Gradle (Kotlin)
- 	implementation("io.github.souravkantha:redis-sliding-ratelimiter:1.0.2")
+ 	implementation("io.github.souravkantha:redis-sliding-ratelimiter:1.0.3")
 
   
 

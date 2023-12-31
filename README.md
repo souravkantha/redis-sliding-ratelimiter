@@ -1,9 +1,9 @@
 # Distributed Sliding Window Rate Limiter
-![image](https://github.com/souravkantha/redis-sliding-ratelimiter/assets/32014166/87d737a0-07cf-4e91-9c58-98363ce83002)
+![image](https://github.com/souravkantha/redis-sliding-ratelimiter/assets/32014166/1ea4d284-77db-4ac5-bd82-6bd4939d4b36)
 
 
 
- <br /> <br /> <br />
+ <br /> <br /> <br /> <br />
 ## Another Rate Limiter, huh 🤨
 
 RollingWindowRateLimiter(RWRL) is a distributed rate limiter written in java. It can be used in a distributed environment where each services or components rate limiting is computed using redis storage. This implementation uses **Sliding Window Algorithm** (refer below diagram)
@@ -63,7 +63,13 @@ RollingWindowRateLimiter(RWRL) is a distributed rate limiter written in java. It
 
 We can use **@RollingWindowRateLimiter** annotation before the method which we want to rate limit.
 
+### For Spring Project
 	@RollingWindowRateLimiter(key = "any-string-as-key", requestsRatePerWindow = <integer>,timeUnit = WindowTimeUnit.MINUTE, fallbackMethod = "any-method-in-same-class")
+
+### For Non Spring Project
+	RollingWindowThrottleService throttler = new RollingWindowThrottleService(new RedisService(new RedissonClientConfig()));
+
+ 	throttler.acquire("greet-customer", 5, WindowTimeUnit.MINUTE);
 
 If we don't want any fallback method to be used. In case of rate limit is reached, default string "You are rate limited!!" will be returned.
 
@@ -164,9 +170,35 @@ Return type for both target and fallback method should be same.
 
   	 public void rateLimitResponse(Object [] args) {
 		// message -> args[0]  
+
 		// acknowledgment -> args[1]  
   
   		Acknowledgment acknowledgment = (Acknowledgment) args[1];
 		acknowledgment.nack(Duration.ofMillis(1000*5)); // send NACK back to broker
 		
+	}
+
+  ### Non Spring Standalone project
+
+	RollingWindowThrottleService throttler = null;
+
+  	private void init() {
+
+		throttler = new RollingWindowThrottleService(new RedisService(new RedissonClientConfig()));
+
+	}
+
+ 	private String greetCustomer() {
+
+		try {
+			
+			throttler.acquire("greet-customer", 5, WindowTimeUnit.MINUTE);
+			return "Hello Customer!!";
+
+		} catch (RateLimitedException rle) {
+			// rate limited
+			return "You are rate limited!";
+
+		}
+
 	}
